@@ -1,0 +1,19 @@
+T\DomainBundle\Entity\Comment:
+    exclusion_policy: ALL
+    xml_root_name: comment
+    properties:
+#        id:
+#            type: integer
+#            expose: true
+#            read_only: true
+        body:
+            type: string
+            expose: true
+    relations:
+        -
+            rel: self
+            href:
+                route: get_comment
+                parameters:
+                    id: expr(object.getId())
+                absolute: absolute

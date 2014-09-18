@@ -1,0 +1,7 @@
+t_domain:
+    resource: "@TDomainBundle/Controller/"
+    type:     annotation
+
+comments:
+    resource: T\DomainBundle\Controller\CommentController
+    type:     rest

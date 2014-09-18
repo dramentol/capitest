@@ -1,0 +1,9 @@
+t_user:
+    resource: "@TUserBundle/Controller/"
+    type:     annotation
+    prefix:   /user
+
+TDomainBundle:
+    resource: "@TDomainBundle/Resources/config/routing.yml"
+    prefix:   /domain
+
