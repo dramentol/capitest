@@ -13,9 +13,6 @@ set   :use_composer, true
 
 # permissions
 set   :writable_dirs,      ["app/cache", "app/logs", "app/spool"]
-# set   :webserver_user,     "apache"
-# set   :permission_method,  :chown
-set   :use_set_permissions, true
 
 role  :web,           domain
 role  :app,           domain, :primary => true
