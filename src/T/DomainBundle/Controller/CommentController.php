@@ -14,10 +14,6 @@ use FOS\RestBundle\View\View;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-/**
- * Class CommentController
- * @package T\DomainBundle\Controller
- */
 class CommentController extends FOSRestController
 {
     /**
