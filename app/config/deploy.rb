@@ -1,19 +1,28 @@
-set :application, "set your application name here"
-set :domain,      "#{application}.com"
-set :deploy_to,   "/var/www/#{domain}"
-set :app_path,    "app"
+set   :application, "Capitest"
+set   :domain,      "grupoelements.net"
+set   :deploy_to,   "/var/www/vhosts/test.grupoelements.net"
 
-set :repository,  "#{domain}:/var/repos/#{application}.git"
-set :scm,         :git
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, or `none`
+set   :user,        "deploy"
 
-set :model_manager, "doctrine"
-# Or: `propel`
+set   :scm,           :git
+set   :repository,    "git@github.com:dramentol/capitest.git"
 
-role :web,        domain                         # Your HTTP server, Apache/etc
-role :app,        domain, :primary => true       # This may be the same as your `Web` server
+set   :shared_files,      ["app/config/parameters.yml"]
+set   :shared_children,     [app_path + "/logs", web_path + "/uploads", "vendor"]
+set   :use_composer, true
 
-set  :keep_releases,  3
+# permissions
+set   :writable_dirs,      ["app/cache", "app/logs", "app/spool"]
+# set   :webserver_user,     "apache"
+# set   :permission_method,  :chown
+set   :use_set_permissions, true
+
+role  :web,           domain
+role  :app,           domain, :primary => true
+
+set   :use_sudo,      false
+set   :keep_releases, 3
+
 
 # Be more verbose by uncommenting the following line
-# logger.level = Logger::MAX_LEVEL
+logger.level = Logger::MAX_LEVEL
